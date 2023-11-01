@@ -12,18 +12,20 @@ public class Board extends JFrame implements ActionListener {
     JButton newGame = buttonHandler.getNewGameButton();
 
     Board() {
-
+        this.addComponentListener(new MyComponentListener(board));
         this.add(mainPanel);
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(north, BorderLayout.NORTH);
-        mainPanel.add(south, BorderLayout.SOUTH);
+        BoxLayout boxLayout = new BoxLayout(mainPanel, BoxLayout.Y_AXIS);
+        mainPanel.setLayout(boxLayout);
+        mainPanel.add(board);
+        mainPanel.add(south);
+        setMinimumSize(new Dimension(400, 400));
+        south.setMaximumSize(new Dimension(400, 200));
 
-        north.add(board);
         board.setLayout(new GridLayout(4, 4));
-
+        board.setBackground(Color.lightGray);
         south.add(newGame);
+
         newGame.addActionListener(this);
-        north.setBackground(Color.WHITE);
         south.setForeground(Color.PINK);
 
         for (Button[] row : buttonHandler.getButtons()) {
