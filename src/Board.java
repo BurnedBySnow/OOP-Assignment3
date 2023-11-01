@@ -9,9 +9,11 @@ public class Board extends JFrame implements ActionListener {
     JPanel north = new JPanel();
     JPanel south = new JPanel();
     JPanel board = new JPanel();
-    ButtonHandler button = new ButtonHandler();
-    java.util.List<Button> buttonsList = button.getButtonsList();
-    JButton newGame = button.getNewGameButton();
+    ButtonHandler buttonHandler = new ButtonHandler();
+//    java.util.List<Button> buttonsList = button.getButtonsList();
+
+    Button[][] buttonArray = new Button[4][4];
+    JButton newGame = buttonHandler.getNewGameButton();
 
     Board() {
 
@@ -25,12 +27,13 @@ public class Board extends JFrame implements ActionListener {
 
         south.add(newGame);
         newGame.addActionListener(this);
-        north.setBackground(Color.PINK);
+        north.setBackground(Color.WHITE);
         south.setForeground(Color.PINK);
 
-        for (int i = 0; i < 16; i++) {
-            Button button = buttonsList.get(i);
-            board.add(button);
+        for (Button[] row : buttonHandler.getButtons()) {
+            for (Button button : row) {
+                board.add(button);
+            }
         }
 
 
@@ -45,9 +48,10 @@ public class Board extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == newGame) {
             board.removeAll();
-            List<Button> shuffled = button.getButtonsList();
-            for (Button button : shuffled) {
-                board.add(button);
+            for (Button[] row : buttonHandler.getButtons()){
+                for (Button button : row) {
+                    board.add(button);
+                }
             }
             board.revalidate();
             board.repaint();
