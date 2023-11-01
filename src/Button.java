@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class Button extends JButton {
     private int number;
+    private int[] arrayPosition;
     public Button(int number){
         this.number = number;
         setText(String.valueOf(number));
@@ -14,17 +15,21 @@ public class Button extends JButton {
         setFont(new Font("Arial", Font.PLAIN, 48));
     }
 
+
+
     public void setNumber(int number) {
         this.number = number;
         this.setText(String.valueOf(number));
     }
 
-    public int getNumber() {
-        return number;
+    public int[] getArrayPosition() {
+        return arrayPosition;
+    }
+    public void setArrayPosition(int[] arrayPosition) {
+        this.arrayPosition = arrayPosition;
     }
 
-    @Override
-    public String toString() {
-        return String.valueOf(number);
+    public int getNumber() {
+        return number;
     }
 }

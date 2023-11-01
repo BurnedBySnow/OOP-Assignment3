@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class BoardUtils {
 
     static int getInvCount(int[] arr, int size) {
@@ -59,6 +56,7 @@ public class BoardUtils {
             for (int j = 0; j < size; j++) {
                 if (buttons[i][j].getNumber() != index && buttons[i][j].getNumber() != 0)
                     return false;
+                index++;
             }
         }
         return true;
