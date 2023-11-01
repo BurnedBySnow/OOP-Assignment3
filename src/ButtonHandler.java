@@ -11,23 +11,20 @@ public class ButtonHandler implements ActionListener {
     private List<Button> buttons = new ArrayList<>();
     private final Button[][] board = new Button[4][4];
     private final JButton newGame = new JButton("New Game");
+
     public JButton getNewGameButton() {
         newGame.setFont(new Font("Arial", Font.PLAIN, 20));
+        newGame.setFocusable(false);
         return newGame;
     }
 
     private void addButtons() {
-        int index = 1;
+        int index = 0;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                if(index == 16){
-                    board[i][j] = new Button(0);
-                    board[i][j].addActionListener(this);
-                } else {
-                    board[i][j] = new Button(index);
-                    board[i][j].addActionListener(this);
-                    index++;
-                }
+                board[i][j] = new Button(index);
+                board[i][j].addActionListener(this);
+                index++;
             }
         }
     }
@@ -57,12 +54,9 @@ public class ButtonHandler implements ActionListener {
         do {
             shuffleArray();
         } while (!BoardUtils.isSolvable(board, 4));
+        board[3][3].setVisible(false);
         return board;
     }
-
-//    public Button[][] getNewGame() {
-//        return getButtons();
-//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -5,7 +5,8 @@ public class Button extends JButton {
     private int number;
     public Button(int number){
         this.number = number;
-        this.setText(String.valueOf(number));
+        setText(String.valueOf(number));
+        setFocusable(false);
         setOpaque(true);
         setPreferredSize(new Dimension(100, 100));
         setBackground(Color.PINK);

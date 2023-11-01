@@ -10,8 +10,6 @@ public class Board extends JFrame implements ActionListener {
     JPanel south = new JPanel();
     JPanel board = new JPanel();
     ButtonHandler buttonHandler = new ButtonHandler();
-//    java.util.List<Button> buttonsList = button.getButtonsList();
-
     Button[][] buttonArray = new Button[4][4];
     JButton newGame = buttonHandler.getNewGameButton();
 
