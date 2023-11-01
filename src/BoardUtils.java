@@ -53,13 +53,11 @@ public class BoardUtils {
         }
     }
 
-    static boolean winCheck(Button[][] tiles, int size) {
-        List<Integer> list = new ArrayList<>();
-
+    static boolean winCheck(Button[][] buttons, int size) {
         int index = 1;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (tiles[i][j].getNumber() != index && tiles[i][j].getNumber() != 0)
+                if (buttons[i][j].getNumber() != index && buttons[i][j].getNumber() != 0)
                     return false;
             }
         }
