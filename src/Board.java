@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class Board extends JFrame implements ActionListener {
     JPanel mainPanel = new JPanel();
@@ -10,7 +9,6 @@ public class Board extends JFrame implements ActionListener {
     JPanel south = new JPanel();
     JPanel board = new JPanel();
     ButtonHandler buttonHandler = new ButtonHandler();
-    Button[][] buttonArray = new Button[4][4];
     JButton newGame = buttonHandler.getNewGameButton();
 
     Board() {
@@ -33,7 +31,6 @@ public class Board extends JFrame implements ActionListener {
                 board.add(button);
             }
         }
-
 
         pack();
         setTitle("15-Puzzle");
