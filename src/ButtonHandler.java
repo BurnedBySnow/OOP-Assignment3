@@ -10,10 +10,8 @@ public class ButtonHandler implements ActionListener {
     private final Button[][] board = new Button[4][4];
     private final JButton newGame = new JButton("New Game");
 
-    public JButton getNewGameButton() {
-        newGame.setFont(new Font("Arial", Font.PLAIN, 20));
-        newGame.setFocusable(false);
-        return newGame;
+    public ButtonHandler() {
+        addButtons();
     }
 
     private void addButtons() {
@@ -46,8 +44,10 @@ public class ButtonHandler implements ActionListener {
         }
     }
 
-    public ButtonHandler() {
-        addButtons();
+    public JButton getNewGameButton() {
+        newGame.setFont(new Font("Arial", Font.PLAIN, 20));
+        newGame.setFocusable(false);
+        return newGame;
     }
 
     public Button[][] getButtons() {
@@ -76,6 +76,7 @@ public class ButtonHandler implements ActionListener {
             swapButtons(position, blank);
         }
     }
+
     public void swapButtons (int[] position, int[] blank) {
         Button blankButton = board[blank[0]][blank[1]];
         Button clickedButton = board[position[0]][position[1]];
