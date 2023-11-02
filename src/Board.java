@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 public class Board extends JFrame implements ActionListener {
     JPanel mainPanel = new JPanel();
-    JPanel north = new JPanel();
     JPanel south = new JPanel();
     JPanel board = new JPanel();
     ButtonHandler buttonHandler = new ButtonHandler();
